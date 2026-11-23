@@ -1,0 +1,43 @@
+# What to search on Instagram (Apify "apify/instagram-hashtag-scraper")
+hashtags:
+  - franchise
+  - franchiseindia
+  - franchiseopportunity
+  - franchisebusiness
+  - focomodel
+  - foco
+  - franchiseownedcompanyoperated
+
+# Multi-word phrases (run as keyword search, separate actor call)
+keywords:
+  - FOCO franchise
+  - franchise opportunity India
+  - company operated franchise
+
+results_per_term: 20        # reels fetched per hashtag/keyword (cost scales with this)
+max_age_hours: 48           # ignore reels older than this
+min_genuineness_score: 6    # 0-10, from the AI screening; below this goes to "Flagged" section
+include_flagged_section: true
+
+# Local red-flag phrases: any match caps the score and lists the flag
+red_flag_phrases:
+  - guaranteed returns
+  - guaranteed income
+  - double your money
+  - 100% returns
+  - assured returns
+  - no risk
+  - mlm
+  - network marketing
+  - join my team
+  - earn from home
+  - dm for details only
+  - limited slots left
+
+ai:
+  model: gemini-3.5-flash-lite   # check ai.google.dev/gemini-api/docs/models if this errors
+  batch_size: 15
+  pause_seconds: 5               # gap between AI calls (free-tier rate limits)
+
+email:
+  subject_prefix: "Franchise & FOCO reels digest"
