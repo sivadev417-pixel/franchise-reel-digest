@@ -50,7 +50,9 @@ def fetch_reels(cfg):
         run_input = {**base, "resultsType": "reels", "resultsLimit": cfg["results_per_term"]}
         print(f"Apify run: {run_input}")
         run = client.actor(ACTOR_ID).call(run_input=run_input)
-        items.extend(client.dataset(run["defaultDatasetId"]).iterate_items())
+        # apify-client <2 returns a dict; 2.x+ returns a Run model
+        ds_id = run["defaultDatasetId"] if isinstance(run, dict) else run.default_dataset_id
+        items.extend(client.dataset(ds_id).iterate_items())
     return items
 
 

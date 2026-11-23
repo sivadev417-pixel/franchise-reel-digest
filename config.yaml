@@ -14,8 +14,8 @@ keywords:
   - franchise opportunity India
   - company operated franchise
 
-results_per_term: 20        # reels fetched per hashtag/keyword (cost scales with this)
-max_age_hours: 48           # ignore reels older than this
+results_per_term: 5       # reels fetched per hashtag/keyword (cost scales with this)
+max_age_hours: 168          # ignore reels older than this
 min_genuineness_score: 6    # 0-10, from the AI screening; below this goes to "Flagged" section
 include_flagged_section: true
 
